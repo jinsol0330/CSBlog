@@ -5,6 +5,8 @@ import com.codepresso.blog.vo.Post;
 import com.codepresso.blog.vo.UserComment;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CommentService {
 
@@ -16,7 +18,10 @@ public class CommentService {
 
     public void addUserComment(UserComment userComment) {
         userCommentRepository.saveComment(userComment);
+    }
 
+    public List<UserComment> getUserComment(Long id){
+        return userCommentRepository.findOneComment(id);
     }
 
 
